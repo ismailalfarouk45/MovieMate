@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="image_cast">IMAGE_CAST</string>
+    <string name="image_favorite">IMAGE_FAVORITE</string>
+    <string name="image_movie">IMAGE_MOVIE</string>
+</resources>

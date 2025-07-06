@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieMate</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="welcome">Welcome</string>
+    <string name="book_your_favorite_movie">Book your favorite movie</string>
+    <string name="image_detail">IMAGE_DETAIL</string>
+</resources>

@@ -9,7 +9,7 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 android {
     namespace 'com.ismail.moviemate'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.ismail.moviemate"

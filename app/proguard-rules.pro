@@ -113,3 +113,102 @@
 -keepclassmembers class com.ismail.moviemate.** {
     *;
 }
+
+# Project specific ProGuard rules
+-ignorewarnings
+
+# Keep all public and private members
+-keep class * {
+    public private *;
+}
+
+# Google Play Services
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.android.gms.**
+
+# XML Pull
+-dontwarn org.xmlpull.v1.**
+-dontnote org.xmlpull.v1.**
+-keep class org.xmlpull.** { *; }
+
+# Retrofit
+-dontnote retrofit2.Platform
+-dontnote retrofit2.Platform$IOS$MainThreadExecutor
+-dontwarn retrofit2.Platform$Java8
+-keepattributes Signature
+-keepattributes Exceptions
+-keepclasseswithmembers class * {
+    @retrofit2.http.* <methods>;
+}
+-keepclassmembers class * {
+    native <methods>;
+}
+-dontwarn okio.**
+-dontwarn com.squareup.okhttp.**
+-dontwarn okhttp3.**
+-dontwarn javax.annotation.**
+-dontwarn com.android.volley.toolbox.**
+
+# Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn sun.misc.**
+-keep class com.google.gson.examples.android.model.** { <fields>; }
+-keep class * extends com.google.gson.TypeAdapter
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+-keepclassmembers,allowobfuscation class * {
+  @com.google.gson.annotations.SerializedName <fields>;
+}
+
+# Glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep class * extends com.bumptech.glide.module.AppGlideModule { <init>(...); }
+-keep public enum com.bumptech.glide.load.ImageHeaderParser$** { **[] $VALUES; public *; }
+-keep class com.bumptech.glide.load.data.ParcelFileDescriptorRewinder$InternalRewinder { *** rewind(); }
+
+# SQLCipher
+-keep,includedescriptorclasses class net.sqlcipher.** { *; }
+-keep,includedescriptorclasses interface net.sqlcipher.** { *; }
+
+# RxJava (optional)
+#-dontwarn java.util.concurrent.Flow*
+
+# AndroidX, App, Core, Favorite
+-keep class com.ismail.moviemate.** { *; }
+-keep class com.ismail.core.** { *; }
+-keep class com.ismail.favorite.** { *; }
+-keep class androidx.** { *; }
+-dontwarn android.support.**
+
+# Room
+-keep class androidx.room.** { *; }
+-keep class com.ismail.core.data.source.local.** { *; }
+-keep class com.ismail.core.data.source.local.entity.** { *; }
+-keep class com.ismail.core.data.source.local.room.** { *; }
+
+# Dagger/Hilt
+-keep class dagger.** { *; }
+-keep class javax.inject.** { *; }
+-keep class dagger.hilt.** { *; }
+-keep class com.ismail.moviemate.di.** { *; }
+
+# Keep parcelable
+-keep class * implements android.os.Parcelable { *; }
+
+# Keep R class
+-keepclassmembers class **.R$* { public static <fields>; }
+
+# Keep sealed classes and their subtypes
+-keep class kotlin.Metadata { *; }
+-keepattributes *Annotation*
+
+# Remove logging
+-assumenosideeffects class android.util.Log {
+    public static *** d(...);
+    public static *** v(...);
+    public static *** i(...);
+    public static *** w(...);
+    public static *** e(...);
+}

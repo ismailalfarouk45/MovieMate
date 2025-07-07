@@ -85,3 +85,17 @@
 ##---------------Begin: proguard configuration for RxJava  ----------
 # Uncomment if you use RxJava
 #-dontwarn java.util.concurrent.Flow*
+
+# Keep all model classes 
+-keep class com.ismail.core.domain.model.** { *; }
+
+# Keep Room entities dan DAO
+-keep class com.ismail.core.data.source.local.entity.** { *; }
+-keep class com.ismail.core.data.source.local.room.** { *; }
+
+# Keep interface repository & usecase
+-keep class com.ismail.core.domain.repository.** { *; }
+-keep class com.ismail.core.domain.usecase.** { *; }
+
+# Keep parcelable
+-keep class * implements android.os.Parcelable { *; }

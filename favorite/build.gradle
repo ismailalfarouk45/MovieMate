@@ -10,6 +10,12 @@ android {
     namespace 'com.ismail.favorite'
     compileSdk 33
 
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/proguard/androidx-annotations.pro']
+        }
+    }
+    
     defaultConfig {
         minSdk 24
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

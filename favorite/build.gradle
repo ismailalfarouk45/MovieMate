@@ -15,7 +15,7 @@ android {
             excludes += ['META-INF/proguard/androidx-annotations.pro']
         }
     }
-    
+
     defaultConfig {
         minSdk 24
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -39,6 +39,10 @@ android {
     }
     buildToolsVersion '33.0.0'
 }
+
+tasks.named('exportReleaseConsumerProguardFiles').configure {
+       dependsOn 'extractProguardFiles'
+   }
 
 dependencies {
     implementation project(":app")

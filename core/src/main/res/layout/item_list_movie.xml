@@ -19,7 +19,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/ivMovie"
+            android:id="@+id/iv_movie"
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:scaleType="centerCrop"

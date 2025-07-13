@@ -1,5 +1,6 @@
 package com.ismail.core.domain.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ class CasterAdapter(private val itemClick: (Caster) -> Unit) :
 
     private var items: MutableList<Caster> = mutableListOf()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setItems(items: List<Caster>) {
         this.items.clear()
         this.items.addAll(items)

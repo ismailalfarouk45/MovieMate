@@ -1,5 +1,6 @@
 package com.ismail.core.domain.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.WebChromeClient
@@ -14,6 +15,7 @@ class MovieTrailerAdapter(private val itemClick: (MovieVideo) -> Unit) :
 
     private var items: MutableList<MovieVideo> = mutableListOf()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setItems(items: List<MovieVideo>) {
         this.items.clear()
         this.items.addAll(items)
@@ -38,6 +40,7 @@ class MovieTrailerAdapter(private val itemClick: (MovieVideo) -> Unit) :
         val itemClick: (MovieVideo) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
+        @SuppressLint("SetJavaScriptEnabled")
         fun bindView(item: MovieVideo) {
             with(item) {
                 itemView.setOnClickListener { itemClick(this) }

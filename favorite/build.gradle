@@ -10,12 +10,6 @@ android {
     namespace 'com.ismail.favorite'
     compileSdk 33
 
-    packagingOptions {
-        resources {
-            excludes += ['META-INF/proguard/androidx-annotations.pro']
-        }
-    }
-
     defaultConfig {
         minSdk 24
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -23,11 +17,8 @@ android {
 
     buildTypes {
         release {
-//            minifyEnabled true
-//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-//            minifyEnabled false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -42,10 +33,6 @@ android {
     }
     buildToolsVersion '33.0.0'
 }
-
-//tasks.named('exportReleaseConsumerProguardFiles').configure {
-//       dependsOn 'extractProguardFiles'
-//   }
 
 dependencies {
     implementation project(":app")

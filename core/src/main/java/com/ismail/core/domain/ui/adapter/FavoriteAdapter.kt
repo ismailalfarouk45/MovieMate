@@ -1,5 +1,6 @@
 package com.ismail.core.domain.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +13,7 @@ class FavoriteAdapter(private val itemClick: (Movie) -> Unit) :
 
         private var items: MutableList<Movie> = mutableListOf()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setItems(item: List<Movie>){
         this.items.clear()
         this.items.addAll(item)
